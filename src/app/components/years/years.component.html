@@ -1,0 +1,12 @@
+  <div *ngIf="visible" id="popup">
+    <div id="popup-inner">
+      <div id="years">
+        <h4 class="selectYear">Select a year</h4>
+        <ul *ngFor="let year of anos">
+          <li class="year" (click)="selecedYear(year)">
+            {{ year }}
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>

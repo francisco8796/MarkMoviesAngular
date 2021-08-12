@@ -1,0 +1,18 @@
+<div id="appContent" class="App">
+  <div id="rectangule"></div>
+  <div id="content">
+    <h1>Movie Ranking</h1>
+    <div id="navBar">
+      <button type="button" (click)="showTop10()">
+        Top 10 Revenue
+      </button>
+      <button (click)="showYears()">Top 10 Revenue {{btText}}</button>
+      <img src="../imgs/Group 20082.svg" alt="Back" (click)="showAllData()">
+    </div>
+    <app-data-table *ngIf="visible"></app-data-table>
+    <app-top10-data-table *ngIf="top10visible"></app-top10-data-table>
+    
+    <app-years *ngIf="yearsVisible" (ano)="anoEscolhido($event)" [visible]="yearsVisible" (tableVisible)="TableVisible($event)"></app-years>
+    <app-years-data-table *ngIf="tbYearsVisible" [year]="selectedYear" ></app-years-data-table>
+  </div> 
+</div>
