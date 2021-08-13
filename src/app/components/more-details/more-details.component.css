@@ -49,3 +49,8 @@
     overflow: scroll;
     overflow-x: hidden;
 }
+#closeBt{
+  position: absolute;
+  right: 16px;
+  top:10px
+}

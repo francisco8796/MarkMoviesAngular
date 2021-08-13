@@ -10,19 +10,19 @@ import { DataTableComponent } from '../data-table/data-table.component';
 export class MoreDetailsComponent implements OnInit {
   @Input() id !: string; 
   @Input() visible:any;
-
-  constructor(public moviedata : MovieDataService) { }
   movieList :any;
   specificMovie: any;
-  separator= "../../../imgs/Line 303.svg";
-  close="../../../imgs/close-24px.svg";
+  separator= "../../../assets/Line 303.svg";
+  close="../../../assets/close-24px.svg";
+
+  constructor(public moviedata : MovieDataService) { }
+
   
   ngOnInit(): void {
     this.moviedata.getSpecificMovie(this.id).subscribe(data =>{
       this.movieList = data;
       this.specificMovie = this.movieList;
-      console.log(this.specificMovie);
-      
+      console.log(this.specificMovie);     
     });
   
   }

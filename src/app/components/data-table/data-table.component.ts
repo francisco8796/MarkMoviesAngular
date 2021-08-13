@@ -10,7 +10,7 @@ export class DataTableComponent implements OnInit {
   constructor(public moviedata : MovieDataService) { }
   movieList :any;
   filmes: any;
-  src='../../../imgs/eye.svg';
+  src='../../../assets/eye.svg';
   detailsVisible:boolean = false;
   @Output() value:string="";
 

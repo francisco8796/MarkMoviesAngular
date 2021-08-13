@@ -7,7 +7,7 @@
         Top 10 Revenue
       </button>
       <button (click)="showYears()">Top 10 Revenue {{btText}}</button>
-      <img src="../imgs/Group 20082.svg" alt="Back" (click)="showAllData()">
+      <img [src]=src alt="Back" (click)="showAllData()">
     </div>
     <app-data-table *ngIf="visible"></app-data-table>
     <app-top10-data-table *ngIf="top10visible"></app-top10-data-table>

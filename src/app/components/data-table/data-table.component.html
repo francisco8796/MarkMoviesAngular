@@ -14,7 +14,7 @@
             <td>{{movie.year}}</td>
             <td> $ {{movie.revenue}}</td>
             <td>
-                <img alt="eye" src=src (click)="showDetails(movie.id)">
+                <img alt="eye" [src]=src (click)="showDetails(movie.id)">
             </td>
           </tr>
       </thead>

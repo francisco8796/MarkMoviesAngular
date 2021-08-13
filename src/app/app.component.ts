@@ -14,6 +14,7 @@ export class AppComponent {
   tbYearsVisible:any;
   top10visible:boolean=false;
   @Output() btText="by Year";
+  src="../../../assets/Group 20082.svg"
 
   showTop10(){
    this.visible= false;

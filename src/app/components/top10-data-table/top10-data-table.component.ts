@@ -11,7 +11,7 @@ export class Top10DataTableComponent implements OnInit {
   constructor(public moviedata : MovieDataService) { }
   movieList :any;
   filmes: any;
-  src='./eye.svg';
+  src='../../../assets/eye.svg';
 
   ngOnInit(): void {
 
