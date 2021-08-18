@@ -8,26 +8,29 @@ import { DataTableComponent } from '../data-table/data-table.component';
   styleUrls: ['./more-details.component.css']
 })
 export class MoreDetailsComponent implements OnInit {
-  @Input() id !: string; 
-  @Input() visible:any;
-  movieList :any;
-  specificMovie: any;
-  separator= "../../../assets/Line 303.svg";
-  close="../../../assets/close-24px.svg";
+  //Id do filme
+  @Input() id !: string;
+  //Visible para mostrar/esconder a popUp 
+  @Input() visible !: boolean;
+  //Filme especifico 
+  movie: any;
+  //imagens
+  separator = "../../../assets/Line 303.svg";
+  close = "../../../assets/close-24px.svg";
 
-  constructor(public moviedata : MovieDataService) { }
+  constructor(public moviedata: MovieDataService) { }
 
-  
+
   ngOnInit(): void {
-    this.moviedata.getSpecificMovie(this.id).subscribe(data =>{
-      this.movieList = data;
-      this.specificMovie = this.movieList;
-      console.log(this.specificMovie);     
+    //receber o serviço com para ter o filme especifico 
+    this.moviedata.getSpecificMovie(this.id).subscribe(data => {
+      this.movie = data;
     });
-  
+
   }
-  closeBt(){
-    this.visible=false;
+  //esconder a popUp dos detalhes
+  hidePopUp() {
+    this.visible = false;
   }
 
 }

@@ -8,39 +8,29 @@ import { MovieDataService } from 'src/app/services/movie-data.service';
 })
 export class YearsComponent implements OnInit {
 
-  constructor(public moviedata : MovieDataService) { }
-  yearsList :any;
-  years: any;
-  @Input() visible:any;
-  tbvisible : any;
-  anos =["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006"];
-
+  constructor(public moviedata: MovieDataService) { }
+  //input para mostrar a popUp com os anos
+  @Input() visible: any;
+  //Mostrar a tabela com o ano escolhido 
+  tbvisible: any;
+  //Lista com os anos
+  anos = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006"];
+  //Output do ano escolhido 
   @Output() ano = new EventEmitter<any>();
+  //Output para mostrar a tabela com os anos
   @Output() tableVisible = new EventEmitter<any>();
-  
-  selecedYear(year:any){
+
+
+  selecedYear(year: any) {
+    //Enviar o ano escolhido 
     this.ano.emit(year);
-    this.visible=false;
-    this.tbvisible=true;
+    //Esconder a popUp
+    this.visible = false;
+    //Mostrar a tabela do ano escolhido
+    this.tbvisible = true;
+    //Enviar a visibilidade da tabela
     this.tableVisible.emit(this.tbvisible);
   }
 
-  ngOnInit(): void {
-  //   this.moviedata.getMovies().subscribe(data =>{
-  //     this.yearsList = data;
-  //     this.years = this.yearsList;
-  //     this.years = 
-  //       new Set([
-  //       this.yearsList,
-  //       this.years.content
-  //         .sort((a:any, b:any) => (a.year < b.year ? 1 : -1))
-  //         .map((y:any) => y.year),
-  //     ])
-  //     console.log( this.years);
-
-  //     this.years = this.yearsList.content;
-  //     this.anos = this.years.filter((item:any,pos:any) => (this.years.indexOf(item)===pos));
-
-  // });
-  }
+  ngOnInit(): void { }
 }

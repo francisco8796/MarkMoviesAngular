@@ -1,23 +1,22 @@
-
 <div id="contentTable" className="data">
-    <table id="moviesTb">
-      <thead>
-        <tr id="titles">
-          <th>Ranking</th>
-          <th>Title</th>
-          <th>Year</th>
-          <th>Revenue</th>
-          <th></th>
-        </tr>
-          <tr *ngFor="let movie of filmes" id="tableContent" key={movie.id}>
-            <td id="rank">{{movie.rank}}</td>
-            <td>{{movie.title}}</td>
-            <td>{{movie.year}}</td>
-            <td> $ {{movie.revenue}}</td>
-            <td>
-                <img alt="eye" [src]= src />
-            </td>
-          </tr>
-      </thead>
-    </table>
-  </div>
+  <table id="moviesTb">
+    <thead>
+      <tr id="titles">
+        <th>Ranking</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Revenue</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let movie of movies" id="tableContent" key="{movie.id}">
+        <td id="rank">{{ movie.rank }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>$ {{ movie.revenue }}</td>
+        <td>
+          <img alt="eye" [src]="src" />
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>
