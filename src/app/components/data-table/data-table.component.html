@@ -1,7 +1,11 @@
 <div 
   id="contentTable" 
   class="data" 
-  (scroll)="onScroll($event)"
+  infinite-scroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="10"
+  [scrollWindow]="false"
+  (scrolled)="onScroll()"
 >
   <table id="moviesTb" >
     <thead>
