@@ -22,9 +22,6 @@ export class DataTableComponent implements OnInit {
   src = '../../../assets/eye.svg';
   @Output() value: string = "";
 
-
-
-
   ngOnInit(): void {
     //carregar os filmes 
     this.loadInitPost();
@@ -40,9 +37,9 @@ export class DataTableComponent implements OnInit {
     });
   }
 
-  loadNextPost() {
+  loadMoreMovies() {
     //aumentar o tamanho da pagina
-    this.size += 2;
+    this.size += 10;
     //Ir buscar o get ao serviço 
     this.moviedata.getMoviesWithPages(this.page, this.size)
       .subscribe((data: any) => {
@@ -52,9 +49,10 @@ export class DataTableComponent implements OnInit {
         this.movies = this.movieList.content
       });
   }
+
   onScroll() {
     //carregar o proximo filme
-    this.loadNextPost();
+    this.loadMoreMovies();
   }
 
   showDetails(id: string) {
