@@ -35,6 +35,7 @@ export class DataTableComponent implements OnInit {
       //Apenas dados que é preciso 
       this.movies = this.movieList.content
     });
+    
   }
 
   loadMoreMovies() {

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Top10Pipe } from './top10.pipe';
 import { Top10DataTableComponent } from './components/top10-data-table/top10-data-table.component';
 import { MoreDetailsComponent } from './components/more-details/more-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +16,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   declarations: [
     AppComponent,
     DataTableComponent,
-    Top10Pipe,
     Top10DataTableComponent,
     MoreDetailsComponent,
     YearsComponent,
