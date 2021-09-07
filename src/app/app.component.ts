@@ -20,29 +20,21 @@ export class AppComponent {
   src = "../../../assets/Group 20082.svg";
   //Texto do botao dos years
   btText = "by Year";
+  
   //Output do Ano Escolhido
-  @Output() selectedYear: any;
+  @Output() selectedYear:any;
+  //Tabela Escolhida
+  @Output() selectedTable:any;
 
   showTop10() {
-    //Esconder a tabela com toda os movies
-    this.allMoviesVisible = false;
-    //Esconder a tabela dos anos
-    this.tbYearsVisible = false;
-    //Mostrar a top10 table
-    this.top10visible = true;
-    //Meter o texto do botao dos anos a "by Year"
     this.btText = "by Year";
+    this.selectedTable= "Top10"
   }
 
   showAllMovies() {
-    //Mostrar a tabela com todos os filmes
-    this.allMoviesVisible = true;
-    //Esconder a tabela dos anos
-    this.tbYearsVisible = false;
-    //Esconder a top10 table
-    this.top10visible = false;
     //Meter o texto do botao dos anos a "by Year"
     this.btText = "by Year";
+    this.selectedTable= "AllMovies"
   }
 
   showYears() {
@@ -56,12 +48,8 @@ export class AppComponent {
 
   isTableVisible(isVisible: boolean) {
     //Atualizar a visibilidade da tabela do ano escolhido
-    this.tbYearsVisible = isVisible;
     //Mudar o texto do botao para o ano escolhido
     this.btText = this.selectedYear;
-    //Esconder a tabela dos filmes todos
-    this.allMoviesVisible = false;
-    //Esconder a tabela do Top10
-    this.top10visible = false;
+    this.selectedTable="Top10Year";
   }
 }

@@ -31,7 +31,21 @@ describe('MoreDetailsComponent', () => {
 
   describe('getDetails', () => {
     const dummyMovie: Movie[] = [
-      { id: "6019683cf29db7802550f198", title: "Guardians of the Galaxy", year: 2014, rank: 1, revenue: 333.13 },
+      {
+        id: "6019683cf29db7802550f198",
+        title: "Guardians of the Galaxy",
+        year: 2014,
+        rank: 1,
+        actors: "Chris Pratt, Vin Diesel, Bradley Cooper, Zoe Saldana",
+        description: "A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.",
+        director: "James Gunn",
+        genre: "Action,Adventure,Sci-Fi",
+        metascore: 76,
+        rating: 8.1,
+        revenue: 333.13,
+        runtime: 121,
+        votes: 757074,
+      },
     ]
 
     it("should return the 1 movie", () => {
@@ -50,31 +64,3 @@ describe('MoreDetailsComponent', () => {
   })
 
 })
-
-
-
-
-
-
-
-// describe('MoreDetailsComponent', () => {
-//   let component: MoreDetailsComponent;
-//   let fixture: ComponentFixture<MoreDetailsComponent>;
-
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [ MoreDetailsComponent ]
-//     })
-//     .compileComponents();
-//   });
-
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(MoreDetailsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });

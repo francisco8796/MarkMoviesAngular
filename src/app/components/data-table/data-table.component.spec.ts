@@ -28,8 +28,7 @@ describe('DataTable', () => {
     httpTestingController.verify();
   });
 
-  describe('getMovies', () => {
-
+  describe('GetFirst 15 movies', () => {
     const dummyMovie: Movie[] = [
       { id: "6019683cf29db7802550f198", title: "Guardians of the Galaxy", year: 2014, rank: 1, revenue: 333.13 },
       { id: "6019683cf29db7802550f18c", title: "Prometheus", year: 2012, rank: 2, revenue: 126.46 },
@@ -47,7 +46,6 @@ describe('DataTable', () => {
       { id: "6019683cf29db7802550f199", title: "Moana", year: 2016, rank: 14, revenue: 248.75 },
       { id: "6019683cf29db7802550f19a", title: "Colossal", year: 2016, rank: 15, revenue: 2.87 }
     ];
-
     it("should return the 15 movies", () => {
       service.getMoviesWithPages(0, 15).subscribe(
         movies => {
@@ -57,6 +55,61 @@ describe('DataTable', () => {
         });
 
       const req = httpTestingController.expectOne('http://movie-challenge-api-xpand.azurewebsites.net/api/movies?page=' + 0 + '&size=' + 15);
+      expect(req.cancelled).toBeFalsy;
+      expect(req.request.method).toEqual('GET');
+      req.flush(dummyMovie);
+    })
+  })
+  describe('getYearsData', () => {
+    const dummyMovie: Movie[] = [
+      { id: "6019683cf29db7802550f198", title: "Rogue One", year: 2016, rank: 13, revenue: 532.17 },
+      { id: "6019683cf29db7802550f18c", title: "Finding Dory", year: 2016, rank: 120, revenue: 486.29 },
+      { id: "6019683cf29db7802550f192", title: "Captain America: Civil War", year: 2016, rank: 36, revenue: 408.08 },
+      { id: "6019683cf29db7802550f197", title: "The Secret Life of Pets", year: 2016, rank: 16, revenue: 368.31 },
+      { id: "6019683cf29db7802550f18d", title: "The Jungle Book", year: 2016, rank: 126, revenue: 364 },
+      { id: "6019683cf29db7802550f18e", title: "Deadpool", year: 2016, rank: 34, revenue: 363.02 },
+      { id: "6019683cf29db7802550f18f", title: "Zootopia", year: 2016, rank: 75, revenue: 341.26 },
+      { id: "6019683cf29db7802550f190", title: "Batman v Superman: Dawn of Justice", year: 2016, rank: 61, revenue: 330.25 },
+      { id: "6019683cf29db7802550f191", title: "Suicide Squad", year: 2016, rank: 5, revenue: 325.02 },
+      { id: "6019683cf29db7802550f193", title: "Sing", year: 2016, rank: 4, revenue: 270.32 }
+    ];
+    it("should return the top 10 movies of 2016", () => {
+      service.getMovies().subscribe(
+        movies => {
+          expect(movies.length).toEqual(dummyMovie.length);
+          expect(movies).toBe(dummyMovie);
+          console.log(movies);
+        });
+
+      const req = httpTestingController.expectOne(service.ApiUrl);
+      expect(req.cancelled).toBeFalsy;
+      expect(req.request.method).toEqual('GET');
+      req.flush(dummyMovie);
+    })
+  })
+  describe('getTop10Revenue', () => {
+    const dummyMovie: Movie[] = [
+      { id: "6019683cf29db7802550f198", title: "Star Wars: Episode VII - The Force Awakens", year: 2015, rank: 51, revenue: 936.6 },
+      { id: "6019683cf29db7802550f18c", title: "Avatar", year: 2009, rank: 88, revenue: 760.51 },
+      { id: "6019683cf29db7802550f192", title: "Jurassic World", year: 2015, rank: 86, revenue: 652.18 },
+      { id: "6019683cf29db7802550f197", title: "The Avengers", year: 2012, rank: 77, revenue: 623.28 },
+      { id: "6019683cf29db7802550f18d", title: "The Dark Knight", year: 2008, rank: 55, revenue: 533.32 },
+      { id: "6019683cf29db7802550f18e", title: "Rogue One", year: 2016, rank: 13, revenue: 532.17 },
+      { id: "6019683cf29db7802550f18f", title: "Finding Dory", year: 2016, rank: 120, revenue: 486.29 },
+      { id: "6019683cf29db7802550f190", title: "Avengers: Age of Ultron", year: 2015, rank: 95, revenue: 458.99 },
+      { id: "6019683cf29db7802550f191", title: "The Dark Knight Rises", year: 2012, rank: 125, revenue: 448.13 },
+      { id: "6019683cf29db7802550f193", title: "The Hunger Games: Catching Fire", year: 2013, rank: 579, revenue: 424.65 }
+    ];
+
+    it("should return top 10 movies", () => {
+      service.getMovies().subscribe(
+        movies => {
+          expect(movies.length).toEqual(dummyMovie.length);
+          expect(movies).toBe(dummyMovie);
+          console.log(movies);
+        });
+
+      const req = httpTestingController.expectOne(service.ApiUrl);
       expect(req.cancelled).toBeFalsy;
       expect(req.request.method).toEqual('GET');
       req.flush(dummyMovie);

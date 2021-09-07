@@ -7,18 +7,16 @@
       <button (click)="showYears()">Top 10 Revenue {{ btText }}</button>
       <img [src]="src" alt="Back" (click)="showAllMovies()" />
     </div>
-    <app-data-table *ngIf="allMoviesVisible"></app-data-table>
-    <app-top10-data-table *ngIf="top10visible"></app-top10-data-table>
-
+    <app-data-table
+      *ngIf="allMoviesVisible"
+      [selectedTable]="selectedTable"
+      [year]="selectedYear"
+    ></app-data-table>
     <app-years
       *ngIf="yearsPopUpVisible"
       (ano)="selectYear($event)"
       [visible]="yearsPopUpVisible"
       (tableVisible)="isTableVisible($event)"
     ></app-years>
-    <app-years-data-table
-      *ngIf="tbYearsVisible"
-      [year]="selectedYear"
-    ></app-years-data-table>
   </div>
 </div>
